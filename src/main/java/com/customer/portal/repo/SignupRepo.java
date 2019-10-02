@@ -23,5 +23,6 @@ public interface SignupRepo extends MongoRepository<Signup, String>{
 public interface SignupRepo extends PagingAndSortingRepository<Signup, String> {
 
     List<Signup> findByEmail(String email);
+    List<Signup> findAll();
 
 }

@@ -29,5 +29,10 @@ public class SignupController {
 	public List<Signup> validateUser( @RequestBody Signup loginuser) {
 		return signupService.validateUser(loginuser);
 	}
+	
+	@RequestMapping(value = "/getAllUsers", method = RequestMethod.GET)
+	public List<Signup> getAllUsers() {
+		return signupService.getAllUsers();
+	}
 
 }

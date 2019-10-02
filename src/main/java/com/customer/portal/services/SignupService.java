@@ -41,4 +41,13 @@ public class SignupService {
 			throw new CustomerExceptions("No User Found", 404);
 		}
 	}
+	
+	public List<Signup> getAllUsers() {
+		List<Signup> data = signupRepo.findAll();
+		if(!(data.size() == 0)) {
+			return data;
+		} else {
+			throw new CustomerExceptions("No Customers found", 404);
+		}
+	}
 }
