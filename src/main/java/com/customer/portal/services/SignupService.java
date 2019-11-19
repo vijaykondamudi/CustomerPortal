@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.customer.portal.exception.CustomerExceptions;
+import com.customer.portal.model.Login;
 import com.customer.portal.model.Signup;
 import com.customer.portal.repo.SignupRepo;
 
@@ -26,7 +27,7 @@ public class SignupService {
 		}
 	}
 	
-	public List<Signup> validateUser (Signup userData) {
+	public List<Signup> validateUser (Login userData) {
 		List<Signup> data = signupRepo.findByEmail(userData.getEmail());
 		
 		byte[] decodedDBPassBytes = Base64.getDecoder().decode(data.get(0).getPassword());

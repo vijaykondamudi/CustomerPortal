@@ -2,10 +2,6 @@ package com.customer.portal.repo;
 
 import java.util.List;
 
-import org.bson.types.ObjectId;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
-import org.springframework.data.domain.Page;
-import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
