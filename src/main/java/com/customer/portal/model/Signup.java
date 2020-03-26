@@ -5,19 +5,25 @@ import java.util.Base64;
 import javax.validation.constraints.NotNull;
 import org.bson.types.ObjectId;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 
 @EntityScan
+@Cacheable
 public class Signup {
 	
 	@Id
 	@ApiModelProperty(value = "ID leave it blank", required= false)
 	private ObjectId _id;
-	
+	 
 	public String get_id() {
 		return _id.toString();
 	}
@@ -30,6 +36,7 @@ public class Signup {
 	private String username;
 	@NotNull
 	@ApiModelProperty(value = "Signup password", required= true)
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private String password;
 	private String firstName;
 	private String lastName;

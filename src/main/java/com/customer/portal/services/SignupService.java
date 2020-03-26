@@ -18,7 +18,8 @@ public class SignupService {
 	SignupRepo signupRepo;
 	
 	public Signup createUser(Signup userData) {
-		List<Signup> data = signupRepo.findByEmail(userData.getEmail());
+		//List<Signup> data = signupRepo.findByEmail(userData.getEmail());
+		List<Signup> data = signupRepo.findByusername(userData.getUsername());
 		if(data.size() == 0) {
 			signupRepo.save(userData);
 			return userData;

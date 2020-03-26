@@ -20,5 +20,7 @@ public interface SignupRepo extends PagingAndSortingRepository<Signup, String> {
 
     List<Signup> findByEmail(String email);
     List<Signup> findAll();
+    List<Signup> findByfirstName(String firstName);
+    List<Signup> findByusername(String username);
 
 }
